@@ -1,0 +1,126 @@
+{
+  "theme": "Light",
+  "archetype": "3 (Pastel & Soft) + Swiss Premium",
+  "design_philosophy": "A futuristic yet highly approachable Claymorphism UI. By blending tactile, soft 3D elements (claymorphism) with modern SaaS bento grids and vibrant pastel gradients, the platform makes complex Agentic AI education feel intuitive, engaging, and premium.",
+  "colors": {
+    "primary": "#2563EB",
+    "primary_hover": "#1D4ED8",
+    "secondary": "#FF6B6B",
+    "background_base": "#F8FAFC",
+    "background_gradient": "bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30",
+    "surface": "#FFFFFF",
+    "text_main": "#0F172A",
+    "text_muted": "#64748B",
+    "pastel_accents": {
+      "blue": "#E0F2FE",
+      "purple": "#EDE9FE",
+      "peach": "#FFEDD5",
+      "mint": "#D1FAE5"
+    }
+  },
+  "typography": {
+    "heading_font": "Outfit, sans-serif",
+    "body_font": "Figtree, sans-serif",
+    "rules": {
+      "h1": "text-5xl sm:text-6xl font-outfit font-black tracking-tighter text-slate-900",
+      "h2": "text-3xl sm:text-4xl font-outfit font-extrabold tracking-tight text-slate-900",
+      "h3": "text-2xl font-outfit font-bold tracking-tight text-slate-800",
+      "body": "text-base font-figtree text-slate-600 leading-relaxed",
+      "labels": "text-xs font-outfit uppercase tracking-[0.2em] font-bold text-slate-500"
+    }
+  },
+  "shadows_and_surfaces": {
+    "clay_card": "bg-white rounded-3xl shadow-[10px_10px_30px_rgba(0,0,0,0.05),inset_4px_4px_12px_rgba(255,255,255,1),inset_-4px_-4px_12px_rgba(0,0,0,0.03)] border border-white/60",
+    "clay_card_hover": "hover:shadow-[15px_15px_40px_rgba(0,0,0,0.08),inset_4px_4px_12px_rgba(255,255,255,1),inset_-4px_-4px_12px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out",
+    "clay_button_primary": "bg-blue-600 text-white rounded-2xl shadow-[6px_6px_16px_rgba(37,99,235,0.25),inset_2px_2px_8px_rgba(255,255,255,0.3),inset_-2px_-2px_8px_rgba(0,0,0,0.2)] hover:bg-blue-700 transition-all font-outfit font-bold",
+    "clay_button_secondary": "bg-white text-slate-800 rounded-2xl shadow-[6px_6px_16px_rgba(0,0,0,0.04),inset_2px_2px_8px_rgba(255,255,255,1),inset_-2px_-2px_8px_rgba(0,0,0,0.02)] hover:text-blue-600 transition-all font-outfit font-bold",
+    "clay_panel_recessed": "bg-slate-50 rounded-3xl shadow-[inset_6px_6px_12px_rgba(0,0,0,0.04),inset_-6px_-6px_12px_rgba(255,255,255,0.9)]"
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "section_padding": "py-24 md:py-32",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-8",
+    "general_rules": [
+      "Use massive negative space (p-8, p-12) inside cards.",
+      "Never center everything; use asymmetrical bento layouts for the landing page.",
+      "Grid children must be direct children of the grid container."
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero",
+        "url": "https://static.prod-images.emergentagent.com/jobs/05a74d16-175f-43a6-8928-ef1b5d8f44ff/images/921bd9e62af4128a6d1c5df7ace8bfbc6ea444f1b1e77043625cd78092b9db3c.png",
+        "description": "3D claymorphism abstract illustration of artificial intelligence, brain network"
+      },
+      {
+        "category": "student_learning",
+        "url": "https://static.prod-images.emergentagent.com/jobs/05a74d16-175f-43a6-8928-ef1b5d8f44ff/images/8c2754e043e204f44e5ade9de134e34b6a26c894513572f5ad4fca59fa4aea57.png",
+        "description": "Student studying on laptop in 3D clay style"
+      },
+      {
+        "category": "conversational_ai",
+        "url": "https://static.prod-images.emergentagent.com/jobs/05a74d16-175f-43a6-8928-ef1b5d8f44ff/images/6f467a57b308b88344d008fbfcaccfe6f5efccb750a45990bc39355af6698486.png",
+        "description": "3D chat bubbles and gears representing Conversational AI"
+      },
+      {
+        "category": "testimonial_1",
+        "url": "https://images.unsplash.com/photo-1725473824966-b21a2ff3fda4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc3NDY4MTUyMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Smiling student portrait"
+      },
+      {
+        "category": "testimonial_2",
+        "url": "https://images.unsplash.com/photo-1657446969218-499fb1599584?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwcG9ydHJhaXQlMjBzbWlsaW5nfGVufDB8fHx8MTc3NDY4MTUyMHww&ixlib=rb-4.1.0&q=85",
+        "description": "Student on stairs"
+      }
+    ],
+    "icons": {
+      "library": "@phosphor-icons/react",
+      "style": "Duotone weight for high-end soft UI feel, size 24-32px"
+    },
+    "logos": {
+      "instruction": "Use purely text-based stylistic representations or lucide-react brand equivalents for AWS, Google, Salesforce, NICE to maintain the clean claymorphism look instead of mismatched image logos. Example: 'Google CCAI' in a pill badge."
+    }
+  },
+  "pages_and_components": {
+    "landing_page": {
+      "hero": "Asymmetrical split. Left: Massive H1 typography with staggered Framer Motion entrance. Right: 'hero_ai_clay' image floating with an organic up/down animation. Background should have blurry pastel blobs (divs with blur-3xl).",
+      "partner_logos": "Horizontal slow marquee (react-fast-marquee) with soft clay pill containers holding the brand names.",
+      "featured_courses": "Bento grid of clay cards. Badges for 'Agentic AI' and 'Contact Center'. Use 'student_learning' and 'conversational_ai' images as card headers.",
+      "success_stories": "Horizontal scrolling section using 'testimonial_X' images in soft circular avatars. Cards should overlap slightly to create depth."
+    },
+    "dashboards": {
+      "student": "Control-room bento grid. Recessed clay panels (clay_panel_recessed) for the background wrapper, containing prominent clay cards for enrolled courses and a large progress ring.",
+      "teacher": "Dense but soft layout. Quick-action clay buttons to 'Schedule Class' and 'Upload Video'. Use Shadcn tables but wrap them in a clay_card with transparent backgrounds for the table cells.",
+      "admin": "Analytics focused. Use Recharts with soft pastel lines and area gradients. Wrap charts in clay cards. High contrast text for metrics."
+    },
+    "live_class_interface": {
+      "layout": "Immersive dark/focused mode variant (invert claymorphism to dark clay) OR strictly highly recessed light interface to make the video player pop. 70/30 split between Video Player and Chat/Notes sidebar.",
+      "video_player": "Rounded-3xl container with heavy drop shadow, simulating a premium screen.",
+      "chat": "Recessed clay panel with incoming chat bubbles popping out as 3D clay pills."
+    },
+    "placement_module": {
+      "vibe": "Action-oriented. Use secondary color (#FF6B6B) for CTAs to distinguish it from the standard learning path. Progress pipelines shown as connected 3D nodes."
+    },
+    "payment_checkout": {
+      "vibe": "High trust. Minimalist claymorphism. Secure lock icons, clear pricing tiers side-by-side. Highlight the recommended subscription with a glowing border/tracing beam effect."
+    }
+  },
+  "motion_and_interactions": {
+    "hover": "All cards scale up (scale-105) and cast a deeper shadow. Buttons depress slightly (translate-y-0.5) to mimic tactile squish.",
+    "page_load": "Framer Motion: Initial opacity 0, y 20, spring animation for entering elements. Stagger children by 0.1s.",
+    "navigation": "Sticky glassmorphic header (backdrop-blur-xl bg-white/60) with a 1px white bottom border."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure all text over pastel backgrounds meets APCA guidelines. Use text-slate-900 for primary readability.",
+    "testing_attributes": "All interactive elements MUST have role-based data-testid attributes (e.g., data-testid='enroll-course-btn', data-testid='live-chat-input').",
+    "motion": "Respect prefers-reduced-motion media queries."
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the Claymorphism CSS classes provided in 'shadows_and_surfaces' to achieve the soft 3D look. Do not revert to standard flat Shadcn cards.",
+    "Ensure the application installs and configures: framer-motion, @phosphor-icons/react (or lucide-react if constrained), and react-fast-marquee.",
+    "Do not use generic font families like Inter or Roboto for headings. Import and use 'Outfit' and 'Figtree' from Google Fonts.",
+    "Use the exact image URLs provided in the media section for hero and testimonial areas. Do not use placeholder services.",
+    "Apply generous padding (p-8, p-12) to create luxurious whitespace within the bento grids."
+  ]
+}

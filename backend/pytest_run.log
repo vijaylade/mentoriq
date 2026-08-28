@@ -1,0 +1,201 @@
+............................................................F..FF....... [ 72%]
+.FFF..FFFFF.................                                             [100%]
+================================== FAILURES ===================================
+____ TestEnrollmentCheckEndpoint.test_enrolled_student_check_returns_true _____
+
+self = <test_iteration7_features.TestEnrollmentCheckEndpoint object at 0x0000020B976871D0>
+student_session = <requests.sessions.Session object at 0x0000020B977638D0>
+
+    def test_enrolled_student_check_returns_true(self, student_session):
+        """Verify enrolled student gets enrolled=true"""
+        response = student_session.get(f"{BASE_URL}/api/enrollments/check/{AGENTIC_AI_COURSE_ID}")
+        assert response.status_code == 200
+        data = response.json()
+>       assert data['enrolled'] == True, f"Expected enrolled=true, got {data}"
+E       AssertionError: Expected enrolled=true, got {'enrolled': False, 'subscription': False}
+E       assert False == True
+
+tests\test_iteration7_features.py:98: AssertionError
+____ TestCourseYouTubePlaylist.test_agentic_ai_course_has_youtube_playlist ____
+
+self = <test_iteration7_features.TestCourseYouTubePlaylist object at 0x0000020B97687350>
+
+    def test_agentic_ai_course_has_youtube_playlist(self):
+        """Verify Agentic AI course has YouTube playlist URL"""
+        response = requests.get(f"{BASE_URL}/api/courses/{AGENTIC_AI_COURSE_ID}")
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration7_features.py:140: AssertionError
+_______ TestCourseYouTubePlaylist.test_course_detail_returns_all_fields _______
+
+self = <test_iteration7_features.TestCourseYouTubePlaylist object at 0x0000020B97687C90>
+
+    def test_course_detail_returns_all_fields(self):
+        """Verify course detail returns all required fields"""
+        response = requests.get(f"{BASE_URL}/api/courses/{AGENTIC_AI_COURSE_ID}")
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration7_features.py:151: AssertionError
+_______ TestCourseDetailEndpoint.test_course_detail_no_youtube_playlist _______
+
+self = <test_iteration8_drive_videos.TestCourseDetailEndpoint object at 0x0000020B97699610>
+api_client = <requests.sessions.Session object at 0x0000020B97777D50>
+
+    def test_course_detail_no_youtube_playlist(self, api_client):
+        """GET /api/courses/{id} should NOT contain youtube_playlist field"""
+        response = api_client.get(f"{BASE_URL}/api/courses/{COURSE_ID}")
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration8_drive_videos.py:127: AssertionError
+_________ TestCourseDetailEndpoint.test_course_detail_no_drive_videos _________
+
+self = <test_iteration8_drive_videos.TestCourseDetailEndpoint object at 0x0000020B97699C90>
+api_client = <requests.sessions.Session object at 0x0000020B97777D50>
+
+    def test_course_detail_no_drive_videos(self, api_client):
+        """GET /api/courses/{id} should NOT contain drive_videos field"""
+        response = api_client.get(f"{BASE_URL}/api/courses/{COURSE_ID}")
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration8_drive_videos.py:135: AssertionError
+_______ TestCourseDetailEndpoint.test_course_detail_has_videos_boolean ________
+
+self = <test_iteration8_drive_videos.TestCourseDetailEndpoint object at 0x0000020B97685650>
+api_client = <requests.sessions.Session object at 0x0000020B97777D50>
+
+    def test_course_detail_has_videos_boolean(self, api_client):
+        """GET /api/courses/{id} SHOULD have has_videos boolean"""
+        response = api_client.get(f"{BASE_URL}/api/courses/{COURSE_ID}")
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration8_drive_videos.py:143: AssertionError
+______ TestVideosEndpointAccess.test_enrolled_student_can_access_videos _______
+
+self = <test_iteration8_drive_videos.TestVideosEndpointAccess object at 0x0000020B9769A7D0>
+enrolled_student_session = <requests.sessions.Session object at 0x0000020B9780D3D0>
+
+    def test_enrolled_student_can_access_videos(self, enrolled_student_session):
+        """GET /api/courses/{id}/videos should return drive_videos for enrolled students"""
+        response = enrolled_student_session.get(f"{BASE_URL}/api/courses/{COURSE_ID}/videos")
+>       assert response.status_code == 200, f"Expected 200, got {response.status_code}"
+E       AssertionError: Expected 200, got 403
+E       assert 403 == 200
+E        +  where 403 = <Response [403]>.status_code
+
+tests\test_iteration8_drive_videos.py:174: AssertionError
+____ TestVideosEndpointAccess.test_enrolled_student_videos_have_embed_urls ____
+
+self = <test_iteration8_drive_videos.TestVideosEndpointAccess object at 0x0000020B9769AB50>
+enrolled_student_session = <requests.sessions.Session object at 0x0000020B9780D3D0>
+
+    def test_enrolled_student_videos_have_embed_urls(self, enrolled_student_session):
+        """Videos should have embed_url in correct format"""
+        response = enrolled_student_session.get(f"{BASE_URL}/api/courses/{COURSE_ID}/videos")
+>       assert response.status_code == 200
+E       assert 403 == 200
+E        +  where 403 = <Response [403]>.status_code
+
+tests\test_iteration8_drive_videos.py:183: AssertionError
+____________ TestVideosEndpointAccess.test_admin_can_access_videos ____________
+
+self = <test_iteration8_drive_videos.TestVideosEndpointAccess object at 0x0000020B9769AED0>
+admin_session = <requests.sessions.Session object at 0x0000020B9780F6D0>
+
+    def test_admin_can_access_videos(self, admin_session):
+        """Admin should be able to access videos endpoint"""
+        response = admin_session.get(f"{BASE_URL}/api/courses/{COURSE_ID}/videos")
+>       assert response.status_code == 200, f"Admin should access videos, got {response.status_code}"
+E       AssertionError: Admin should access videos, got 404
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration8_drive_videos.py:198: AssertionError
+___________ TestVideosEndpointAccess.test_teacher_can_access_videos ___________
+
+self = <test_iteration8_drive_videos.TestVideosEndpointAccess object at 0x0000020B9769B590>
+teacher_session = <requests.sessions.Session object at 0x0000020B97842090>
+
+    def test_teacher_can_access_videos(self, teacher_session):
+        """Teacher should be able to access videos endpoint"""
+        response = teacher_session.get(f"{BASE_URL}/api/courses/{COURSE_ID}/videos")
+>       assert response.status_code == 200, f"Teacher should access videos, got {response.status_code}"
+E       AssertionError: Teacher should access videos, got 404
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration8_drive_videos.py:206: AssertionError
+____ TestAdminCourseUpdate.test_admin_can_update_course_with_drive_videos _____
+
+self = <test_iteration8_drive_videos.TestAdminCourseUpdate object at 0x0000020B9769BE10>
+admin_session = <requests.sessions.Session object at 0x0000020B9780F6D0>
+
+    def test_admin_can_update_course_with_drive_videos(self, admin_session):
+        """Admin can add drive_videos via PUT /api/courses/{id}"""
+        # First get current course data
+        get_response = admin_session.get(f"{BASE_URL}/api/courses/{COURSE_ID}")
+>       assert get_response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404]>.status_code
+
+tests\test_iteration8_drive_videos.py:219: AssertionError
+============================== warnings summary ===============================
+tests/test_iteration4_features.py::TestHealthAndAuth::test_admin_login
+  D:\Bhushan\Altanon_Backend\altanononew\Altanon\backend\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_iteration4_features.py::TestHealthAndAuth::test_admin_login returned <class 'requests.sessions.Session'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_iteration4_features.py::TestBlogWithExternalLinks::test_create_blog_with_external_link
+  D:\Bhushan\Altanon_Backend\altanononew\Altanon\backend\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_iteration4_features.py::TestBlogWithExternalLinks::test_create_blog_with_external_link returned <class 'str'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_iteration5_features.py::TestAdminEnrollmentFeatures::test_get_admin_users_endpoint
+  D:\Bhushan\Altanon_Backend\altanononew\Altanon\backend\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_iteration5_features.py::TestAdminEnrollmentFeatures::test_get_admin_users_endpoint returned <class 'list'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_iteration5_features.py::TestAdminEnrollmentFeatures::test_get_courses_endpoint
+  D:\Bhushan\Altanon_Backend\altanononew\Altanon\backend\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_iteration5_features.py::TestAdminEnrollmentFeatures::test_get_courses_endpoint returned <class 'list'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_iteration5_features.py::TestAdminEnrollmentFeatures::test_admin_create_student_for_enrollment
+  D:\Bhushan\Altanon_Backend\altanononew\Altanon\backend\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_iteration5_features.py::TestAdminEnrollmentFeatures::test_admin_create_student_for_enrollment returned <class 'dict'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+tests/test_mentoriq_api.py::TestBlogs::test_create_blog_as_admin
+  D:\Bhushan\Altanon_Backend\altanononew\Altanon\backend\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but tests/test_mentoriq_api.py::TestBlogs::test_create_blog_as_admin returned <class 'str'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_iteration7_features.py::TestEnrollmentCheckEndpoint::test_enrolled_student_check_returns_true
+FAILED tests/test_iteration7_features.py::TestCourseYouTubePlaylist::test_agentic_ai_course_has_youtube_playlist
+FAILED tests/test_iteration7_features.py::TestCourseYouTubePlaylist::test_course_detail_returns_all_fields
+FAILED tests/test_iteration8_drive_videos.py::TestCourseDetailEndpoint::test_course_detail_no_youtube_playlist
+FAILED tests/test_iteration8_drive_videos.py::TestCourseDetailEndpoint::test_course_detail_no_drive_videos
+FAILED tests/test_iteration8_drive_videos.py::TestCourseDetailEndpoint::test_course_detail_has_videos_boolean
+FAILED tests/test_iteration8_drive_videos.py::TestVideosEndpointAccess::test_enrolled_student_can_access_videos
+FAILED tests/test_iteration8_drive_videos.py::TestVideosEndpointAccess::test_enrolled_student_videos_have_embed_urls
+FAILED tests/test_iteration8_drive_videos.py::TestVideosEndpointAccess::test_admin_can_access_videos
+FAILED tests/test_iteration8_drive_videos.py::TestVideosEndpointAccess::test_teacher_can_access_videos
+FAILED tests/test_iteration8_drive_videos.py::TestAdminCourseUpdate::test_admin_can_update_course_with_drive_videos
+11 failed, 89 passed, 6 warnings in 210.01s (0:03:30)

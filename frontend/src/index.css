@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Figtree:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global body gradient — raw CSS to ensure Chrome compatibility */
+body {
+    margin: 0;
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 35%, #eef2ff 65%, #f1f5f9 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #0f172a;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 221.2 83.2% 53.3%;
+        --radius: 0.5rem;
+    }
+
+    * {
+        border-color: hsl(var(--border));
+    }
+
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
+
+@layer utilities {
+    /* Claymorphism Card — soft pillowy 3D with visible depth */
+    .clay-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow:
+            12px 12px 24px rgba(166, 180, 200, 0.25),
+            -8px -8px 20px rgba(255, 255, 255, 0.9),
+            inset 2px 2px 6px rgba(255, 255, 255, 0.7),
+            inset -1px -1px 3px rgba(166, 180, 200, 0.1);
+    }
+
+    .clay-card-hover {
+        transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .clay-card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            16px 16px 32px rgba(166, 180, 200, 0.35),
+            -10px -10px 24px rgba(255, 255, 255, 0.95),
+            inset 2px 2px 6px rgba(255, 255, 255, 0.8),
+            inset -1px -1px 3px rgba(166, 180, 200, 0.15);
+    }
+
+    /* Clay Button Primary — soft 3D raised blue */
+    .clay-button-primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        border-radius: 1rem;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        border: none;
+        box-shadow:
+            6px 6px 14px rgba(37, 99, 235, 0.35),
+            -3px -3px 8px rgba(96, 165, 250, 0.2),
+            inset 1px 1px 4px rgba(255, 255, 255, 0.25);
+        transition: all 0.3s ease;
+    }
+    .clay-button-primary:hover {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        box-shadow:
+            8px 8px 18px rgba(37, 99, 235, 0.45),
+            -4px -4px 10px rgba(96, 165, 250, 0.25),
+            inset 1px 1px 4px rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+    }
+
+    /* Clay Button Secondary — soft white raised */
+    .clay-button-secondary {
+        background: rgba(255, 255, 255, 0.9);
+        color: #334155;
+        border-radius: 1rem;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow:
+            5px 5px 12px rgba(166, 180, 200, 0.2),
+            -3px -3px 8px rgba(255, 255, 255, 0.9),
+            inset 1px 1px 3px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+    }
+    .clay-button-secondary:hover {
+        color: #2563eb;
+        box-shadow:
+            7px 7px 16px rgba(166, 180, 200, 0.3),
+            -4px -4px 10px rgba(255, 255, 255, 0.95),
+            inset 1px 1px 3px rgba(255, 255, 255, 0.9);
+        transform: translateY(-1px);
+    }
+
+    /* Clay Panel Recessed — inset soft shadow */
+    .clay-panel-recessed {
+        background: #f1f5f9;
+        border-radius: 1.5rem;
+        box-shadow:
+            inset 6px 6px 12px rgba(166, 180, 200, 0.2),
+            inset -6px -6px 12px rgba(255, 255, 255, 0.95);
+    }
+}
